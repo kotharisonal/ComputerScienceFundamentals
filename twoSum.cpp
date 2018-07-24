@@ -22,3 +22,28 @@ public:
         return a;
     }
 };
+
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        vector<int> retIndex;
+        bool found = false;
+        int i=0;
+        int j=numbers.size()-1;
+        while(i<j && !found) {
+            if(numbers[i]+numbers[j]>target)
+                j--;
+            else if (numbers[i]+numbers[j]<target)
+                i++;
+            else{
+                found = true;
+                retIndex.push_back(i+1);
+                retIndex.push_back(j+1);
+                return retIndex;
+
+            }         
+        }
+        return retIndex;                   
+    }
+};
