@@ -11,7 +11,7 @@ size_t findRotationPoint(const vector<string>& words)
         size_t guessIndex = floorIndex + ((ceilingIndex - floorIndex) / 2);
 
         // if guess comes after first word or is the first word
-        if (words[guessIndex] >= words[0]) {
+        if (words[guessIndex] >= words[floorIndex]) {
             // go right
             floorIndex = guessIndex;
         }
