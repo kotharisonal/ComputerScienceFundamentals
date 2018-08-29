@@ -1,0 +1,4 @@
+Find the highest index i such that s[i] < s[i+1]. If no such index exists, the permutation is the last permutation.
+Find the highest index j > i such that s[j] > s[i]. Such a j must exist, since  i+1 is such an index.
+Swap s[i] with s[j].
+Reverse the order of all of the elements after index i till the last element.
