@@ -1,4 +1,7 @@
-I have frequently heard people new to programming express that they have difficulty understanding how to write recursive algorithms. Although they understand what recursion is, they find difficult to understand how to go about creating a recursive solution. In this article, my goal is not to discuss in detail what recursion is — instead, I would like to discuss how to do recursion — that is, how to think through the process of writing a recursive algorithm to solve a problem.
+I have frequently heard people new to programming express that they have difficulty understanding how to write recursive algorithms. 
+Although they understand what recursion is, they find difficult to understand how to go about creating a recursive solution. 
+In this article, my goal is not to discuss in detail what recursion is — instead, I would like to discuss how to do recursion — that is, 
+how to think through the process of writing a recursive algorithm to solve a problem.
 
 When talking about writing recursive functions, most people focus on the fact that any recursive function needs to have two parts:
 
@@ -14,14 +17,19 @@ function factorial(n) {
   // Recursive case
   return n * factorial(n — 1);
 }
-Most of the time, I have heard people teaching recursion focus far too much on the base case, and not enough on the recursive case. People usually don’t have much trouble realizing what the base case should be — the harder part is deciding how the recursive call should be structured in order to accomplish the computation you want. Unfortunately, it is difficult to find useful advice about how we should go about doing this. This is what I would like to talk about here — how we should think when writing a recursive algorithm.
+Most of the time, I have heard people teaching recursion focus far too much on the base case, and not enough on the recursive case. 
+People usually don’t have much trouble realizing what the base case should be — the harder part is deciding how the recursive call should 
+be structured in order to accomplish the computation you want. Unfortunately, it is difficult to find useful advice about how we should go
+about doing this. This is what I would like to talk about here — how we should think when writing a recursive algorithm.
 
-When I sit down to write a recursive algorithm to solve a problem, I have found it to be helpful to go through the following thought process in order to decide how the recursive call should be structured:
+When I sit down to write a recursive algorithm to solve a problem, I have found it to be helpful to go through the following thought 
+process in order to decide how the recursive call should be structured:
 
 Break the problem I am trying to solve down into a problem that is one step simpler
 Assume that my function will work to solve the simpler problem — really believe it beyond any doubt
 Ask myself: Since I know I can solve the simpler problem, how would I solve the more complex problem?
-To illustrate this thought process, let’s look at an example. Suppose that we want to write a recursive function that will return a reversed copy of a given string:
+To illustrate this thought process, let’s look at an example. Suppose that we want to write a recursive function that will return a 
+reversed copy of a given string:
 
 
 function reverse(string) {
@@ -35,22 +43,32 @@ function reverse(string) {
   // Base case
   if (string.length < 2) return string;
 }
-Now, for the more challenging part — figuring out how to write the recursive call to accomplish the rest of the task. Let’s go through the thought process that we outlined above:
+Now, for the more challenging part — figuring out how to write the recursive call to accomplish the rest of the task. 
+Let’s go through the thought process that we outlined above:
 
 I am trying to reverse a string. A problem one step simpler would be to reverse a string that is one letter shorter.
 I will assume, and believe with every fiber of my being, that my function
 can correctly reverse a string that is one letter shorter than the one I am
 currently trying to reverse.
-I ask myself: Since I know and believe that my function can correctly reverse a string that is one letter shorter than the one I am currently trying to reverse, how can I reverse the whole string? Well, I can take all of the characters except the first one, reverse those (which I know and believe that my function can do), and then tack the first character on to the end! In code, it would look like this:
+I ask myself: Since I know and believe that my function can correctly reverse a string that is one letter shorter than the one I am 
+currently trying to reverse, how can I reverse the whole string? Well, I can take all of the characters except the first one, 
+reverse those (which I know and believe that my function can do), and then tack the first character on to the end! In code, 
+it would look like this:
 function reverse(string) {
   // Base case
   if (string.length < 2) return string;
   // Recursive case
   return reverse(string.slice(1, string.length)) + string[0];
 }
-One common mistake that I see people make when trying to develop a recursive algorithm to solve a problem is that they try to think about how to break the problem down all the way to the base case. I would like to emphasize that in order to develop the function above, I did not think about how I could break the problem down all the way to the base case. That is the function’s job, not yours. Instead, I only thought about the problem that is one step simpler than the problem I am really trying to solve, and then I wrote my recursive algorithm to build up from there to solve the real problem.
+One common mistake that I see people make when trying to develop a recursive algorithm to solve a problem is that they try to think 
+about how to break the problem down all the way to the base case. I would like to emphasize that in order to develop the function above, 
+I did not think about how I could break the problem down all the way to the base case. That is the function’s job, not yours. Instead, 
+I only thought about the problem that is one step simpler than the problem I am really trying to solve, and then I wrote my recursive 
+algorithm to build up from there to solve the real problem.
 
-When learning to work with recursion myself, I found it extremely helpful to try doing simple tasks with recursion that I would normally do with a loop. If you’re interested in practicing the skill of writing recursive algorithms, try applying the thought process above to a few of the following problems — no loops allowed!
+When learning to work with recursion myself, I found it extremely helpful to try doing simple tasks with recursion that I would normally 
+do with a loop. If you’re interested in practicing the skill of writing recursive algorithms, try applying the thought process above to a
+few of the following problems — no loops allowed!
 
 Go through an array and print out all of the elements
 Determine whether or not a string is a palindrome
