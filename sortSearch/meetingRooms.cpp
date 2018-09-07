@@ -46,4 +46,19 @@ public:
     return maxCnt;
 }
 }; 
+
+/*
+What We Learned
+This one arguably uses a greedy ↴ approach as well, except this time we had to sort the vector first.
+
+How did we figure that out?
+
+We started off trying to solve the problem in one pass, and we noticed that it wouldn't work. We then noticed the reason it wouldn't work:
+to see if a given meeting can be merged, we have to look at all the other meetings! That's because the order of the meetings is random.
+
+That's what got us thinking: what if the vector were sorted? We saw that then a greedy approach would work. We had to spend 
+O(nlgn) time on sorting the vector, but it was better than our initial brute force approach, which cost us 
+O(n^2) time!
+
+*/
    
